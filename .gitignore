@@ -1,0 +1,17 @@
+# Python cache
+__pycache__/
+*.pyc
+
+# Model weight files
+*.pth
+models/__pycache__/
+
+# Virtual environment
+.venv/
+env/
+venv/
+
+# VS Code workspace (optional)
+.vscode/
+
+
