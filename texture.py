@@ -117,7 +117,7 @@ class TextureReplacement:
             resized_texture = cv2.resize(texture, (optimal_texture_w, optimal_texture_h))
             
             # 如果需要，旋转纹理以匹配墙面方向
-            if abs(primary_angle) > 20:  # 只有在有明显方向时才旋转
+            if abs(primary_angle) > 60:  # 只有在有明显方向时才旋转
                 rotation_matrix = cv2.getRotationMatrix2D(
                     (optimal_texture_w/2, optimal_texture_h/2), 
                     primary_angle, 

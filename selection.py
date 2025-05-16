@@ -467,23 +467,23 @@ class CustomWallDetector:
         """
         print(f"[*] 使用自定义算法检测墙面: {image_path}")
         
-        # 检查是否为纯墙面图像
-        filename = os.path.basename(image_path).lower()
-        is_wall_only = 'wall' in filename or 'brick' in filename
+        # # 检查是否为纯墙面图像
+        # filename = os.path.basename(image_path).lower()
+        # is_wall_only = 'wall' in filename or 'brick' in filename
         
-        # 如果是纯墙面图像且没有用户选择，使用整图作为掩码
-        if is_wall_only and user_mask is None:
-            print(f"[*] 检测到纯墙面图像，使用整图作为墙面")
-            image = cv2.imread(image_path)
-            wall_mask = np.ones(image.shape[:2], dtype=np.uint8) * 255
-            self._create_visualization(image_path, wall_mask)
-            return wall_mask
+        # # 如果是纯墙面图像且没有用户选择，使用整图作为掩码
+        # if is_wall_only and user_mask is None:
+        #     print(f"[*] 检测到纯墙面图像，使用整图作为墙面")
+        #     image = cv2.imread(image_path)
+        #     wall_mask = np.ones(image.shape[:2], dtype=np.uint8) * 255
+        #     self._create_visualization(image_path, wall_mask)
+        #     return wall_mask
         
-        # 如果有用户掩码，并且是纯墙面图像，直接使用用户掩码
-        if is_wall_only and user_mask is not None:
-            print(f"[*] 检测到纯墙面图像，使用用户选择区域作为墙面")
-            self._create_visualization(image_path, user_mask, user_mask)
-            return user_mask
+        # # 如果有用户掩码，并且是纯墙面图像，直接使用用户掩码
+        # if is_wall_only and user_mask is not None:
+        #     print(f"[*] 检测到纯墙面图像，使用用户选择区域作为墙面")
+        #     self._create_visualization(image_path, user_mask, user_mask)
+        #     return user_mask
         
         # 常规处理：读取图像
         image = cv2.imread(image_path)
