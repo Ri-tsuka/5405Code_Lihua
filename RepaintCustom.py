@@ -312,14 +312,14 @@ class CustomWallDetector:
         """
         print(f"[*] Detecting wall in: {image_path} with custom algorithm")
         
-        # 检查是否为纯墙面图像
-        filename = os.path.basename(image_path).lower()
-        if 'wall' in filename or 'brick' in filename:
-            print(f"[*] Detected wall-only image, using direct wall detection")
-            image = cv2.imread(image_path)
-            wall_mask = np.ones(image.shape[:2], dtype=np.uint8) * 255
-            self._create_visualization(image_path, wall_mask)
-            return wall_mask
+        # # 检查是否为纯墙面图像
+        # filename = os.path.basename(image_path).lower()
+        # if 'wall' in filename or 'brick' in filename:
+        #     print(f"[*] Detected wall-only image, using direct wall detection")
+        #     image = cv2.imread(image_path)
+        #     wall_mask = np.ones(image.shape[:2], dtype=np.uint8) * 255
+        #     self._create_visualization(image_path, wall_mask)
+        #     return wall_mask
         
         # 读取图像
         image = cv2.imread(image_path)
@@ -862,13 +862,13 @@ def parse_args():
                         help='批量处理输入目录中的所有图像')
     
     parser.add_argument('--color-tolerance', type=int, default=15,
-                        help='颜色相似度容差 (RGB差异)')
+                        help='颜色相似度容差 (RGB差异,default=15)')
     
     parser.add_argument('--shadow-tolerance', type=int, default=30,
-                        help='阴影/光照变化容差')
+                        help='阴影/光照变化容差, default=30')
     
     parser.add_argument('--min-region-size', type=int, default=1000,
-                        help='最小区域大小（以像素计）')
+                        help='最小区域大小（以像素计, default=1000）')
     
     return parser.parse_args()
 
