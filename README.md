@@ -1,4 +1,4 @@
-# Repaint: Interactive Image Repainting and Decoration Demo
+# Repaint
 
 ## Installation Dependencies
 
